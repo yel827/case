@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<style>
+		
+			p{
+				width:270px;
+				height:50px;
+				background: #ccc;
+				margin-top:2px;
+				line-height:50px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="top">
+			<p>点击展示和隐藏</p>
+		</div>
+		<div class="main">
+			
+			<p>第一个</p>
+			<p>第二个</p>
+			<p>第三个</p>
+			<p>第四个</p>
+		</div>
+	</body>
+<script>
+	var p = document.getElementsByClassName("main")[0].getElementsByTagName("p")
+	var top = document.getElementsByClassName("top")[0].getElementsByTagName("p")[0]
+	var flog=true
+		top.onclick=function(){
+			if(flog){
+				for(var i=0; i<p.length; i++){
+					p[i].style.display="none"
+				}
+				flog=!flog
+			}else{
+				for(var i=0; i<p.length; i++){
+					p[i].style.display="block"
+				}
+				flog=!flog
+			}
+		}
+	
+</script>
+</html>
