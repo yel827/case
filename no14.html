@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<style>
+			.main{
+				width:270px;
+				height:270px;
+				border:2px solid #ccc;
+			}
+			.main div{
+				width:90px;
+				height:90px;
+				border:1px solid #fff;
+				box-sizing: border-box;
+				float: left;
+				text-align: center;
+				line-height: 90px;
+				font-size: 30px;
+				background: #000;
+				font-weight: bold;
+				color:#fff;
+			}
+			p{
+				width:270px;
+				height:90px;
+				background: #ccc;
+				margin-top:10px;
+				font-size: 30px;
+				text-align: center;
+				line-height: 90px;
+				font-weight: bold;
+				display: none;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="main">
+			<div>1</div>
+			<div>2</div>
+			<div>3</div>
+			<div>4</div>
+			<div>5</div>
+			<div>6</div>
+			<div>7</div>
+			<div>8</div>
+			<div>9</div>
+			<p class="xian">1</p>
+			<p class="xian">2</p>
+			<p class="xian">3</p>
+			<p class="xian">4</p>
+			<p class="xian">5</p>
+			<p class="xian">6</p>
+			<p class="xian">7</p>
+			<p class="xian">8</p>
+			<p class="xian">9</p>
+		</div>
+		
+	</body>
+<script>
+	var div = document.getElementsByClassName("main")[0].getElementsByTagName("div")
+	var xi = document.getElementsByClassName("xian")
+	for(var i=0; i<div.length; i++){
+		div[i].index=i
+		div[i].onmouseover=function(){
+			for(var i=0; i<div.length; i++){
+				div[i].style.background="#000"
+				div[i].style.color="#fff"
+				xi[i].style.display="none"
+			}
+			div[this.index].style.background="#fff"
+			div[this.index].style.color="#000"
+			xi[this.index].style.display="block"
+		}
+	}
+</script>
+</html>
+
