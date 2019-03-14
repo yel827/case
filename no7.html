@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<style>
+			button{
+				width:100px;
+				height:50px;
+			}
+			div{
+				width:100px;
+				height:50px;
+				border:1px solid blue;
+				text-align: center;
+				line-height: 50px;
+				display: none;
+			}
+			
+		</style>
+	</head>
+
+	<body>
+		<button>输入法</button>
+		<div style="margin-top:10px;">手写</div>
+		<div>拼音</div>
+		<div>关闭</div>
+	</body>
+<script>
+	var btn=document.getElementsByTagName("button")[0]
+	var div=document.getElementsByTagName("div")
+	var flog=true
+	btn.onclick=function(){
+		for(var i=0; i<div.length; i++){
+			if(flog){
+				div[i].style.display="block"
+			}else{
+				div[i].style.display="none"
+			}
+		
+		}
+		flog=!flog
+	}
+	for(var i=0; i<div.length; i++){
+		div[2].onclick=function(){
+			for(var i=0; i<div.length; i++){
+				div[i].style.display="none"
+			}
+		}
+	}
+</script>
+</html>

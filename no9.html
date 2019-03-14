@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<style>
+			
+		</style>
+	</head>
+
+	<body>
+		<input type="text">输入数字<br />
+		<button>求和</button>
+		<div></div>
+	</body>
+<script>
+	var inp = document.getElementsByTagName("input")[0]
+	var btn = document.getElementsByTagName("button")[0]
+	var div = document.getElementsByTagName("div")[0]
+	btn.onclick=function(){
+		 var sun = inp.value.split("")
+		 for( i in sun){
+			 sum += parseInt(sun[i])
+		 }
+			div.innerHTML=sum
+	}
+</script>
+</html>

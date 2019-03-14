@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		
+	</head>
+
+	<body>
+		<div>
+			<input type="checkbox">划过一下试试
+		</div>
+	</body>
+<script>
+	var div=document.getElementsByTagName('div')[0]
+	div.onmouseover=function(){
+		this.style.background="red"
+		this.style.color="#fff"
+	}
+	div.onmouseout=function(){
+		this.style.background="#fff"
+		this.style.color="#000"
+	}
+</script>
+</html>

@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	</head>
+
+	<body>
+		<input type="text">
+		<input type="text">
+		<button>弹出</button>
+	</body>
+	<script>
+		var inp=document.getElementsByTagName('input')
+		var but=document.getElementsByTagName('button')[0]
+		but.onclick=function(){
+			alert(inp[0].value)
+			alert(inp[1].value)
+		}
+	</script>
+</html>
