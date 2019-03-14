@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<style>
+			#main{
+				width:400px;
+				height:400px;
+				background: #000;
+				color:#fff;
+			}
+		</style>
+	</head>
+
+	<body>
+		属性名: <input type="text" id="tet"><br />
+		属性值: <input type="text" id="txt"><br />
+		<button id="btn">确定</button> <button>重置</button>
+		<div id="main">
+			在上面输入属性和值这里就会变
+		</div>
+	</body>
+<script type="text/javascript">
+	var btn = document.getElementById("btn")
+	    tet = document.getElementById("tet")
+		txt = document.getElementById("txt")
+		main = document.getElementById("main")
+		function changStyle(main,shu,value){
+			return main.style[shu]=value
+		}
+		btn.onclick=function(){
+			changStyle(main,tet.value,txt.value)
+		}
+</script>
+</html>
