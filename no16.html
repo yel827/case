@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<style>
+			.main{
+				width:900px;
+				height:400px;
+				border:2px solid #ccc;
+				display: flex;
+				flex-direction: row;
+				flex-wrap: wrap;
+			}
+			.main div{
+				width:20%;
+				height:50%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				border:1px solid #ccc;
+				box-sizing: border-box;
+			}
+			.main div img{
+				opacity:0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="main">
+			<div><img src="img/1.jpg" alt=""></div>
+			<div><img src="img/2.jpg" alt=""></div>
+			<div><img src="img/3.jpg" alt=""></div>
+			<div><img src="img/4.jpg" alt=""></div>
+			<div><img src="img/5.jpg" alt=""></div>
+			<div><img src="img/6.jpg" alt=""></div>
+			<div><img src="img/7.jpg" alt=""></div>
+			<div><img src="img/8.jpg" alt=""></div>
+			<div><img src="img/9.jpg" alt=""></div>
+			<div><img src="img/10.jpg" alt=""></div>
+		</div>
+	</body>
+<script>
+	var div = document.getElementsByTagName("img")
+	for(var i=0; i<div.length; i++){
+		div[i].onmouseover=function(){
+			this.style.opacity="1"
+		}
+		div[i].onmouseout=function(){
+			this.style.opacity="0"
+		}
+	}
+</script>
+</html>
