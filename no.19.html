@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>放大镜</title>
+	<style>
+	.box{   /*大盒子虽然比详细图的盒子宽度小，但是在逻辑上详细图的盒子属于大盒子*/
+	   width: 350px;
+	   height: 350px;
+	   position: relative;
+       margin: 100px;
+       border: 1px solid #aaa;
+	}
+	.box .detailed{  /*详细图不能使用浮动，因为盒子下面一般会有文字内容*/
+			width: 450px;
+			height: 450px;
+			border: 1px solid #aaa;
+			position: absolute;
+			overflow: hidden;
+			left: 365px;      /*以父盒子来定位*/ 
+			top: 0;
+			/*初始设置为不可见*/
+			display: none;
+	}
+	.box .normal .magnfier{
+	  			width: 150px;
+	  			height: 150px;
+	  			top: 0;
+	  			left: 0;
+	  			position: absolute;
+	  			background-color: rgba(0, 0, 255, 0.2);/*也可以用opacity来设置透明度*/
+	  			cursor: move;   /*鼠标选中为十字*/
+	  			display: none;  /*初始设为不可见*/
+	}
+	 .detailed img{   /*对图片进行定位使图片移动*/
+	 	  position: absolute;
+	 	  top: 0;
+	 	  left: 0;
+	 }
+	</style>
+	 <script>
+	 	function $(id){
+	 		return document.getElementById(id);
+	 	}
+	 	window.onload = function(){
+	 		var box = $('box');
+	 		var normal = box.children[0];
+	 		var margnfier = normal.children[1];//获取放大镜的Dom对象，document.getElementsByClassName来获取。
+	 		var detailed = box.children[1];//获得缩略图DOM对象也可以用document.getElementsByClassName('zoom')[0];
+	 		var detailedImg =  box.children[1].children[0];
+	 		normal.onmouseover = function(){//不能给box注册onmousever事件，否则快速移到详细图上是详细图也不会消失，
+	 			margnfier.style.display = 'block';
+	 			detailed.style.display = 'block';
+	 		}
+	 		normal.onmouseout = function(){
+	 			margnfier.style.display = 'none';
+	 			detailed.style.display = 'none';
+	 		}
+	 		var x = 0;
+	 		var y = 0;
+	 		//控制zoom放大镜部分在normal里面的移动
+	 		normal.onmousemove = function(event){
+	 			 var evt = event || window.event;
+	 			 //兼容性写法
+	 			 x = evt.clientX - box.offsetLeft - margnfier.offsetWidth / 2;
+	 			 y = evt.clientY - box.offsetTop - margnfier.offsetHeight / 2; 
+	 			 //判断鼠标是不是溢出了normal的区域，
+	 			 if(x < 0){
+	 			 	x = 0; 
+	 			 }else{
+	 			 	if(x > box.offsetWidth - margnfier.offsetWidth){
+	 			 		x = box.offsetWidth - margnfier.offsetWidth;
+	 			 	}
+	 			  }
+	 			  if(y < 0){
+	 			  	y = 0;
+	 			  }else{
+	 			  	if(y > box.offsetHeight - margnfier.offsetHeight){
+	 			  		y = box.offsetHeight - margnfier.offsetHeight;
+	 			  	}
+	 			  }
+	 			 margnfier.style.left = x + 'px';
+	 			 margnfier.style.top = y + 'px';
+	 			 var detailedX = -x * 800 / this.offsetWidth;
+	 			 var detailedY = -y * 800 / this.offsetHeight;
+	 			 //用放大镜顶点在盒子中的位置根据比例找到图片的位置，来显示图片
+  				//改变图片位置
+	 			 detailedImg.style.left = detailedX + 'px';
+	 			 detailedImg.style.top = detailedY + 'px';
+	 		} 
+	 	}
+	 </script>
+</head>
+<body>
+	<div id="box" class="box"> <!--包含详细图和缩略图的盒子-->
+		<div class="normal">
+			<img src="img/timg.jpg" alt="">
+			<div class="magnfier"></div>
+		</div>
+		<div class="detailed">
+			<img src="img/timg.jpg" alt="">
+		</div>
+	</div>
+</body>
+</html>
